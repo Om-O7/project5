@@ -19,6 +19,8 @@
       </div>
       <button type="submit" class="btn btn-dark w-100">Login</button>
     </form>
+    
+   <div id="messageContainer" class="message mt-3" style="display: none;"></div>
   </div>
 
   <script>
@@ -26,7 +28,10 @@
       e.preventDefault();
       const params = new URLSearchParams(window.location.search);
       const redirect = params.get("redirect") || "home.html";
-      alert("Login successful!");
+      const messageContainer = document.getElementById("messageContainer");
+      messageContainer.style.display = 'block'; // Make it visible
+      messageContainer.textContent = "Login successful!"; // Set the message text
+      messageContainer.className = "message mt-3 success"; // Add success styling class
       window.location.href = redirect;
     }
   </script>
